@@ -3,13 +3,20 @@
 # CLIP score for PyTorch
 
 This repository provides a batch-wise quick processing for calculating CLIP scores. 
-The project structure is adapted from (pytorch-fid)[https://github.com/mseitzer/pytorch-fid] and (CLIP)[https://github.com/openai/CLIP].
+The project structure is adapted from [pytorch-fid](https://github.com/mseitzer/pytorch-fid) and [CLIP](https://github.com/openai/CLIP).
 
 The CLIP Score measures the Cosine Similarity between two embedded features.
-This repository utilizes the pretrained (CLIP Model)[https://github.com/openai/CLIP] to calculate 
+This repository utilizes the pretrained [CLIP Model](https://github.com/openai/CLIP) to calculate 
 the mean average of cosine similarities between two modalities.
 
 ## Installation
+
+Requirements:
+```
+pip install torch # choose a version suits your GPU
+pip install git+https://github.com/openai/CLIP.git
+
+```
 
 Install from [pip](https://pypi.org/project/clip-score/):
 
@@ -17,12 +24,6 @@ Install from [pip](https://pypi.org/project/clip-score/):
 pip install clip-score
 ```
 
-Requirements:
-- python3
-- pytorch
-- torchvision
-- pillow
-- numpy
 
 ## Usage
 

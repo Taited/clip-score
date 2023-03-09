@@ -206,6 +206,7 @@ def main():
     else:
         num_workers = args.num_workers
 
+    print('Loading CLIP model: {}'.format(args.clip_model))
     model, preprocess = clip.load(args.clip_model, device=device)
     
     dataset = DummyDataset(args.real_path, args.fake_path,
@@ -215,6 +216,7 @@ def main():
                             num_workers=num_workers, pin_memory=True)
     dataloader = tqdm(dataloader)
     
+    print('Calculating CLIP Score:')
     clip_score = calculate_clip_score(dataloader, model,
                                       args.real_flag, args.fake_flag)
     clip_score = clip_score.cpu().item()
