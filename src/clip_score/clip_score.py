@@ -154,7 +154,7 @@ def calculate_clip_score(dataloader, model, real_flag, fake_flag):
     score_acc = 0.
     sample_num = 0.
     logit_scale = model.logit_scale.exp()
-    for batch_data in dataloader:
+    for batch_data in tqdm(dataloader):
         real = batch_data['real']
         real_features = forward_modality(model, real, real_flag)
         fake = batch_data['fake']
@@ -214,7 +214,6 @@ def main():
                            transform=preprocess, tokenizer=clip.tokenize)
     dataloader = DataLoader(dataset, args.batch_size, 
                             num_workers=num_workers, pin_memory=True)
-    dataloader = tqdm(dataloader)
     
     print('Calculating CLIP Score:')
     clip_score = calculate_clip_score(dataloader, model,
