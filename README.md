@@ -1,44 +1,37 @@
+# CLIP Score for PyTorch
+
 [![PyPI](https://img.shields.io/pypi/v/clip-score.svg)](https://pypi.org/project/clip-score/)
 
-# CLIP score for PyTorch
-
-This repository provides a batch-wise quick processing for calculating CLIP scores. 
-The project structure is adapted from [pytorch-fid](https://github.com/mseitzer/pytorch-fid) and [CLIP](https://github.com/openai/CLIP).
-
-The CLIP Score measures the Cosine Similarity between two embedded features.
-This repository utilizes the pretrained [CLIP Model](https://github.com/openai/CLIP) to calculate 
-the mean average of cosine similarities between two modalities.
+This repository provides a batch-wise quick processing for calculating CLIP scores. It uses the pretrained CLIP model to measure the cosine similarity between two modalities. The project structure is adapted from [pytorch-fid](https://github.com/mseitzer/pytorch-fid) and [CLIP](https://github.com/openai/CLIP).
 
 ## Installation
 
 Requirements:
-```
-pip install torch # choose a version suits your GPU
-pip install git+https://github.com/openai/CLIP.git
-
-```
-
-Install from [pip](https://pypi.org/project/clip-score/):
-
-```
-pip install clip-score
-```
-
+- Install PyTorch:
+  ```
+  pip install torch  # Choose a version that suits your GPU
+  ```
+- Install CLIP:
+  ```
+  pip install git+https://github.com/openai/CLIP.git
+  ```
+- Install clip-score from [PyPI](https://pypi.org/project/clip-score/):
+  ```
+  pip install clip-score
+  ```
 
 ## Usage
 
-We assume that the image and the text data are contained in two individual folders. What's more, there is the same name of each sample in two modalities. To compute the CLIP score between images and texts:
+To compute the CLIP score between images and texts, make sure that the image and text data are contained in two separate folders, and each sample has the same name in both modalities. Run the following command:
 ```
 python -m clip_score path/to/image path/to/text
 ```
 
-To run the evaluation on GPU, use the flag `--device cuda:N`, where `N` is the index of the GPU to use.
+To run the evaluation on a GPU, use the `--device cuda:N` flag, where `N` is the index of the GPU to use.
 
-## To measure the CLIP Score within image-image or text-text:
-In case you would like to calculate the CLIP score in the same modality, the folder structure
-should follow the upper usage case. Besides, you need to specify the prefered modalities by 
-`--real_flag` and `--fake_flag`. `--real_flag` refers to the modality of the former path and the `--fake_flag` refers to the later. The default settins are `--real_flag=img` and `--fake_flag=txt`.
-For example:
+## Computing CLIP Score within the Same Modality
+
+If you want to calculate the CLIP score within the same modality (e.g., image-image or text-text), follow the same folder structure as mentioned above. Additionally, specify the preferred modalities using the `--real_flag` and `--fake_flag` options. By default, `--real_flag=img` and `--fake_flag=txt`. Examples:
 ```
 python -m clip_score path/to/imageA path/to/imageB --real_flag img --fake_flag img
 python -m clip_score path/to/textA path/to/textB --real_flag txt --fake_flag txt
@@ -51,7 +44,7 @@ If you use this repository in your research, consider citing it using the follow
 ```
 @misc{taited2023CLIPScore,
   author={SUN Zhengwentai},
-  title={{clip-score: FID Score for PyTorch}},
+  title={{clip-score: CLIP Score for PyTorch}},
   month={March},
   year={2023},
   note={Version 0.1.0},
@@ -65,4 +58,4 @@ This implementation is licensed under the Apache License 2.0.
 
 The project structure is adapted from [mseitzer's pytorch-fid](https://github.com/mseitzer/pytorch-fid) project. The CLIP model is adapted from [OpenAI's CLIP](https://github.com/openai/CLIP).
 
-The CLIP Score was introduced in OpenAI's [Learning Transferable Visual Models From Natural Language Supervision](https://arxiv.org/abs/2103.00020)
+The CLIP Score was introduced in OpenAI's [Learning Transferable Visual Models From Natural Language Supervision](https://arxiv.org/abs/2103.00020).
