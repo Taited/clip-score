@@ -24,7 +24,7 @@ if __name__ == '__main__':
         version=get_version(os.path.join('src', 'clip_score', '__init__.py')),
         author='Taited',
         author_email='taited9160@gmail.com',
-        description=('Package for calculating Clip Score'
+        description=('Package for calculating CLIP-Score'
                      ' using PyTorch'),
         long_description=read('README.md'),
         long_description_content_type='text/markdown',
