@@ -80,7 +80,7 @@ If you use this repository in your research, consider citing it using the follow
   title={{clip-score: CLIP Score for PyTorch}},
   month={March},
   year={2023},
-  note={Version 0.1.0},
+  note={Version 0.1.1},
   howpublished={\url{https://github.com/taited/clip-score}},
 }
 ```
