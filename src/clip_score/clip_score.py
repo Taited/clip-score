@@ -128,7 +128,7 @@ class DummyDataset(Dataset):
             data = fp.read()
             fp.close()
         if self.tokenizer is not None:
-            data = self.tokenizer(data).squeeze()
+            data = self.tokenizer(data，truncate=True).squeeze()
         return data
 
     def _check(self):
